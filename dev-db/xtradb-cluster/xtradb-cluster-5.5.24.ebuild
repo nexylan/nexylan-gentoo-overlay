@@ -4,12 +4,10 @@
 
 EAPI=3
 
-DESCRIPTION="Percona Server with XtraDB is a backwards-compatible replacement
-for MySQL that is much faster and more scalable, easier to monitor and tune, and
-has features to make operational tasks easier. It is designed to excel for cloud
-computing, support NoSQL access, and take full advantage of modern hardware such
-as SSD and Flash storage."
-HOMEPAGE="http://www.percona.com/software/percona-server/"
+DESCRIPTION="Percona XtraDB Cluster is a high availability and high scalability
+solution for MySQL users. XtraDB Cluster integrates Percona Server with the
+Galera library of high availability solutions in a single product package"
+HOMEPAGE="http://www.percona.com/software/percona-xtradb-cluster/"
 
 MY_P="5.5"
 MY_POINT="24"
