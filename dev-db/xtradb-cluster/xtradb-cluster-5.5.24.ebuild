@@ -32,6 +32,7 @@ DEPEND=""
 RDEPEND="${DEPEND}
 		dev-libs/libaio
 		>=sys-apps/openrc-0.7.0
+		!dev-db/mysql
 		"
 
 src_unpack() {
