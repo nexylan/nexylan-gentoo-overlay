@@ -13,9 +13,6 @@ SRC_URI="
 amd64? (
 http://www.percona.com/downloads/XtraBackup/XtraBackup-${PV}/binary/Linux/x86_64/percona-xtrabackup-${PV}.tar.gz
 )
-x86? (
-http://www.percona.com/downloads/XtraBackup/XtraBackup-${PV}/binary/Linux/i686/percona-xtrabackup-${PV}.tar.gz
-)
 "
 
 LICENSE="GPL-2 public-domain"
