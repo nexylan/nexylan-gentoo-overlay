@@ -48,8 +48,8 @@ src_install() {
 	cd ${WORKDIR}/${MY_PN}/
 
 	dosym /lib64/libncurses.so.5 /lib64/libtinfo.so.5
-	dosym /lib64/libcrypto.so /lib64/libcrypto.so.10
-	dosym /lib64/libssl.so /lib64/libssl.so.10
+	dosym /usr/lib64/libcrypto.so /usr/lib64/libcrypto.so.10
+	dosym /usr/lib64/libssl.so /usr/lib64/libssl.so.10
 
 	dodir /etc/mysql/
 	dodir /var/lib/mysql/
