@@ -77,6 +77,9 @@ src_install() {
 	dolib.a lib/*.a
 	dodoc docs/*
 
+	# libmysql patch
+	dosym /usr/lib64/libmysqlclient.so /usr/lib64/libmysqlclient.so.16
+
 	#insinto /usr/lib64/plugin/
 	#doins -r lib/plugin/*
 
