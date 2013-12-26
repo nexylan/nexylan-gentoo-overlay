@@ -30,6 +30,9 @@ function php_get_uri ()
 		"gentoo")
 			echo "mirror://gentoo/${2}"
 		;;
+		"nexylan")
+			echo "http://nexylan.net/pub/gentoo/${2}"
+		;;
 		*)
 			die "unhandled case in php_get_uri"
 		;;
@@ -47,7 +50,7 @@ PHP_SRC_URI="$(php_get_uri "${PHP_RELEASE}" "${PHP_P}.tar.bz2")"
 
 PHP_PATCHSET="0"
 PHP_PATCHSET_URI="
-	$(php_get_uri gentoo "php-patchset-${PV}-r${PHP_PATCHSET}.tar.bz2")"
+	$(php_get_uri nexylan "php-patchset-${PV}-r${PHP_PATCHSET}.tar.bz2")"
 
 if [[ ${SUHOSIN_VERSION} == *-gentoo ]]; then
 	# in some cases we use our own suhosin patch (very recent version,
