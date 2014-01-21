@@ -44,7 +44,7 @@ PHP_MV="$(get_major_version)"
 # alias, so we can handle different types of releases (finals, rcs, alphas,
 # betas, ...) w/o changing the whole ebuild
 PHP_PV="${PV/_rc/RC}"
-PHP_RELEASE="php"
+PHP_RELEASE="nexylan"
 PHP_P="${PN}-${PHP_PV}"
 PHP_SRC_URI="$(php_get_uri "${PHP_RELEASE}" "${PHP_P}.tar.bz2")"
 
