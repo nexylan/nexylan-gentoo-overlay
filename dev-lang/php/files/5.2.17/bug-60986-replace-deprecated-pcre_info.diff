@@ -1,0 +1,54 @@
+From 704c45ec3edeab16b46fbac3b81947577d185970 Mon Sep 17 00:00:00 2001
+From: Rasmus Lerdorf <rasmus@php.net>
+Date: Mon, 6 Feb 2012 18:11:56 +0000
+Subject: [PATCH] Fix for bug 60986
+
+---
+ ext/pcre/php_pcre.c   |    4 ++--
+ ext/pcre/php_pcre.def |    1 -
+ main/php_compat.h     |    1 -
+ 3 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/ext/pcre/php_pcre.c b/ext/pcre/php_pcre.c
+index 1741843..fc96ef6 100644
+--- a/ext/pcre/php_pcre.c
++++ b/ext/pcre/php_pcre.c
+@@ -252,10 +252,10 @@ PHPAPI pcre_cache_entry* pcre_get_compiled_regex_cache(char *regex, int regex_le
+ 	   back the compiled pattern, otherwise go on and compile it. */
+ 	if (zend_hash_find(&PCRE_G(pcre_cache), regex, regex_len+1, (void **)&pce) == SUCCESS) {
+ 		/*
+-		 * We use a quick pcre_info() check to see whether cache is corrupted, and if it
++		 * We use a quick pcre_fullinfo() check to see whether cache is corrupted, and if it
+ 		 * is, we flush it and compile the pattern from scratch.
+ 		 */
+-		if (pcre_info(pce->re, NULL, NULL) == PCRE_ERROR_BADMAGIC) {
++		if (pcre_fullinfo(pce->re, NULL, NULL, NULL) == PCRE_ERROR_BADMAGIC) {
+ 			zend_hash_clean(&PCRE_G(pcre_cache));
+ 		} else {
+ #if HAVE_SETLOCALE
+diff --git a/ext/pcre/php_pcre.def b/ext/pcre/php_pcre.def
+index 0e49897..769b064 100644
+--- a/ext/pcre/php_pcre.def
++++ b/ext/pcre/php_pcre.def
+@@ -4,7 +4,6 @@ php_pcre_copy_substring
+ php_pcre_exec
+ php_pcre_get_substring
+ php_pcre_get_substring_list
+-php_pcre_info
+ php_pcre_maketables
+ php_pcre_study
+ php_pcre_version
+diff --git a/main/php_compat.h b/main/php_compat.h
+index 0163844..80f43d4 100644
+--- a/main/php_compat.h
++++ b/main/php_compat.h
+@@ -34,7 +34,6 @@
+ #define pcre_exec			php_pcre_exec
+ #define pcre_get_substring		php_pcre_get_substring
+ #define pcre_get_substring_list		php_pcre_get_substring_list
+-#define pcre_info			php_pcre_info
+ #define pcre_maketables			php_pcre_maketables
+ #define pcre_study			php_pcre_study
+ #define pcre_version			php_pcre_version
+-- 
+1.7.8.6
