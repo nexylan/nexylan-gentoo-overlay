@@ -326,7 +326,12 @@ eblit-pkg() {
 
 eblit-pkg pkg_setup v2
 
-src_prepare() { eblit-run src_prepare v2 ; }
+src_prepare() {
+	epatch "${FILESDIR}"/${PV}/bug-60986-replace-deprecated-pcre_info.diff
+	epatch "${FILESDIR}"/${PV}/bug-60986-safer-pcre_fullinfo.diff
+
+	eblit-run src_prepare v2
+}
 src_configure() { eblit-run src_configure v521 ; }
 src_compile() { eblit-run src_compile v1 ; }
 src_install() { eblit-run src_install v2 ; }
