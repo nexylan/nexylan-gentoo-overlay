@@ -9,17 +9,17 @@ solution for MySQL users. XtraDB Cluster integrates Percona Server with the
 Galera library of high availability solutions in a single product package"
 HOMEPAGE="http://www.percona.com/software/percona-xtradb-cluster/"
 
-MY_P="5.5"
-MY_POINT="31"
-MY_PATCH="23.7.5"
-MY_BUILD="438"
+MY_P="5.6"
+MY_POINT="15"
+MY_PATCH="25.5"
+MY_BUILD="759"
 
 MY_PS="${MY_P}.${MY_POINT}-${MY_PATCH}"
 MY_PVP="${MY_PS}.${MY_BUILD}"
 MY_PN="Percona-XtraDB-Cluster-${MY_PVP}.Linux.x86_64"
 
 SRC_URI="amd64? (
-http://www.percona.com/downloads/Percona-XtraDB-Cluster/${MY_PS}/binary/linux/x86_64/Percona-XtraDB-Cluster-${MY_PVP}.Linux.x86_64.tar.gz
+http://www.percona.com/redir/downloads/Percona-XtraDB-Cluster-56/LATEST/binary/linux/x86_64/Percona-XtraDB-Cluster-${MY_PVP}.Linux.x86_64.tar.gz
 )
 "
 
@@ -79,6 +79,10 @@ src_install() {
 
 	# libmysql patch
 	dosym /usr/lib64/libmysqlclient.so /usr/lib64/libmysqlclient.so.16
+
+	# libSSL patch
+	dosym /usr/lib64/libssl.so /usr/lib64/libssl.so.6
+	dosym /usr/lib64/libcrypto.so /usr/lib64/libcrypto.so.6
 
 	#insinto /usr/lib64/plugin/
 	#doins -r lib/plugin/*
