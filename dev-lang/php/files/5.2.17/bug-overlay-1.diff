@@ -1,0 +1,11 @@
+--- work/sapis-build/cli/Makefile.orig  2014-02-17 14:22:44.061789288 +0100
++++ work/sapis-build/cli/Makefile   2014-02-17 14:23:02.638789288 +0100
+@@ -120,7 +120,7 @@
+ EXTENSION_DIR = /usr/lib64/php5.2/lib/extensions/no-debug-non-zts-20060613
+ EXTRA_LDFLAGS =
+ EXTRA_LDFLAGS_PROGRAM =
+-EXTRA_LIBS = -lcrypt -lreadline -lncurses -lt1 -lfreetype -lpng -lz -ljpeg -lpcre -lcrypt -lrt -lresolv -lm -ldl -lnsl -lcrypt -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lcrypt
++EXTRA_LIBS = -lcrypt -lreadline -lncurses -lt1 -lfreetype -lpng -lz -ljpeg -lpcre -lcrypt -lrt -lresolv -lm -ldl -lnsl -lcrypt -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lxml2 -lz -lm -ldl -lcrypt -lssl -lcrypto
+ ZEND_EXTRA_LIBS =
+ INCLUDES = -I/var/tmp/portage/dev-lang/php-5.2.17/work/sapis-build/cli/ext/date/lib -I/usr/include/libxml2 -I/usr/include/freetype2 -I/var/tmp/portage/dev-lang/php-5.2.17/work/sapis-build/cli/ext/mbstring/oniguruma -I/var/tmp/portage/dev-lang/php-5.2.17/work/sapis-build/cli/ext/mbstring/libmbfl -I/var/tmp/portage/dev-lang/php-5.2.17/work/sapis-build/cli/ext/mbstring/libmbfl/mbfl -I/usr/include/mysql -I$(top_builddir)/TSRM -I$(top_builddir)/Zend
+ EXTRA_INCLUDES =
