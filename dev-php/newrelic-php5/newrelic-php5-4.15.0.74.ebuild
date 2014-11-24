@@ -42,7 +42,7 @@ src_install() {
 		PHP_EXTENSION_SOURCE="${PHP_EXT_NAME}-${PHP_EXTENSION}.so"
 	fi
 
-	mkdir -p ${D}/${PHP_EXTENSION_DIR} ${D}/etc/newrelic ${T}/${PHP_EXTENSION_DIR} /var/log/newrelic
+	mkdir -p ${D}/${PHP_EXTENSION_DIR} ${D}/etc/newrelic ${T}/${PHP_EXTENSION_DIR}
 	newbin "${S}/scripts/newrelic-iutil.${ARCH}" "newrelic-iutil"
 	newbin "${S}/daemon/newrelic-daemon.${ARCH}" "newrelic-daemon"
 	newinitd "${S}/scripts/init.generic" "newrelic-daemon"
@@ -60,7 +60,7 @@ src_install() {
 			PHPINI="${PHPINI} etc/php/${a}-php${PHP_V}/ext/${PHP_EXT_NAME}.ini"
 			[[ -d "${D}/etc/php/${a}-php${PHP_V}/ext" ]] || mkdir -p "${D}/etc/php/${a}-php${PHP_V}/ext"
 			echo "extension=${PHP_EXT_NAME}.so" > "${D}/etc/php/${a}-php${PHP_V}/ext/${PHP_EXT_NAME}.ini"
-			echo "[newrelic|" >> "${D}/etc/php/${a}-php${PHP_V}/ext/${PHP_EXT_NAME}.ini"
+			echo "[newrelic]" >> "${D}/etc/php/${a}-php${PHP_V}/ext/${PHP_EXT_NAME}.ini"
 			echo "newrelic.license=\"\"" >> "${D}/etc/php/${a}-php${PHP_V}/ext/${PHP_EXT_NAME}.ini"
 			echo "newrelic.logfile = \"/var/log/newrelic/php_agent.log\"" >> "${D}/etc/php/${a}-php${PHP_V}/ext/${PHP_EXT_NAME}.ini"
 			echo "newrelic.daemon.logfile = \"/var/log/newrelic/newrelic-daemon.log\"" >> "${D}/etc/php/${a}-php${PHP_V}/ext/${PHP_EXT_NAME}.ini"
