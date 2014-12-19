@@ -64,6 +64,7 @@ src_install() {
 
 	insinto /etc/init.d/
 	newins ${FILESDIR}/init.d.mysql mysql
+	fperms 0644 ${FILESDIR}/init.d.mysql
 	
 	insinto /etc/mysql/
 	doins ${FILESDIR}/my.cnf
