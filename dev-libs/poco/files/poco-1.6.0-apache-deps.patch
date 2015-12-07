@@ -1,0 +1,18 @@
+--- ApacheConnector/CMakeLists.txt	2015-06-03 14:41:52.729078873 +0300
++++ ApacheConnector/CMakeLists.txt.new	2015-06-03 14:47:07.746015000 +0300
+@@ -13,7 +13,7 @@
+     PROPERTIES
+     VERSION ${SHARED_LIBRARY_VERSION} SOVERSION ${SHARED_LIBRARY_VERSION}
+     DEFINE_SYMBOL ApacheHandlers_EXPORTS)
+-target_link_libraries( "${LIBNAME}" )
++target_link_libraries( "${LIBNAME}" Foundation Net Util)
+ target_include_directories( "${LIBNAME}"
+     PUBLIC
+         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+@@ -23,4 +23,4 @@
+ 
+ if (ENABLE_TESTS)
+   add_subdirectory(samples)
+-endif ()
+\ No newline at end of file
++endif ()
