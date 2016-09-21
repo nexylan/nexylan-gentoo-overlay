@@ -31,6 +31,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="dev-util/scons
+		dev-libs/boost
 		dev-libs/check
 		app-arch/unzip"
 RDEPEND="${DEPEND}
