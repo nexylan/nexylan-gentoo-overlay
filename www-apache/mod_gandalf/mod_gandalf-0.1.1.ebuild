@@ -5,7 +5,7 @@
 EAPI="5"
 inherit autotools apache-module
 
-DESCRIPTION="An Apache2 module for running Python WSGI applications"
+DESCRIPTION="An Apache2 module for queriyng a gandalf server"
 HOMEPAGE="https://github.com/nexylan/mod_gandalf"
 SRC_URI="https://github.com/nexylan/${PN}/archive/${PV}.zip -> ${P}.zip"
 
