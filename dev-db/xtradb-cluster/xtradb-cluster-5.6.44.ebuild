@@ -81,8 +81,10 @@ src_install() {
                 || die
 
 	dodir /etc/mysql/
-	dodir /var/lib/mysql/
+	keepdir /var/lib/mysql/
+	keepdir /var/log/mysql/
 	fowners mysql /var/lib/mysql/
+	fowners mysql /var/log/mysql/
 
 	insinto /etc/mysql/
 	doins support-files/*.cnf
