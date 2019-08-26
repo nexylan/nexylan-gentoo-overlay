@@ -67,9 +67,21 @@ src_install() {
 
 	tar -xf *.tar.gz
 	cd Percona-XtraDB-Cluster-${MY_PS}..Linux.x86_64
+	#files already provided by mysql-connector-c 
+	rm \
+                man/man1/my_print_defaults.1 \
+                man/man1/perror.1 \
+				bin/mysql_config \
+				bin/my_print_defaults \
+				bin/perror \
+				lib/libmysqlclient.so \
+				lib/libmysqlclient.so.18 \
+				lib/libmysqlclient_r.so \
+				lib/libmysqlclient_r.so.18 \
+                || die
 
 	dodir /etc/mysql/
-	keepdir /var/lib/mysql/
+	dodir /var/lib/mysql/
 	fowners mysql /var/lib/mysql/
 
 	insinto /etc/mysql/
@@ -102,9 +114,6 @@ src_install() {
 
 	#insinto /usr/lib64/plugin/
 	#doins -r lib/plugin/*
-
-	insinto /usr/include/mysql/
-	doins -r include/*
 
 	insinto /usr/share/man/
 	doins -r man/*
