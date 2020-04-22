@@ -12,7 +12,7 @@ KEYWORDS="~amd64"
 
 RDEPEND="
 	!media-gfx/wkhtmltopdf
-	media-libs/libpng:1.6
+	media-libs/libpng:0/16
 	media-libs/libjpeg-turbo
 	media-libs/fontconfig
 	media-libs/freetype
