@@ -23,6 +23,9 @@ function php_get_uri ()
 		"gentoo")
 			echo "mirror://gentoo/${2}"
 		;;
+		"nexylan-overlay")
+			echo "https://raw.githubusercontent.com/nexylan/nexylan-gentoo-overlay/master/dev-lang/php/files/${2}"
+		;;
 		*)
 			die "unhandled case in php_get_uri"
 		;;
@@ -43,7 +46,7 @@ PHP_RELEASE="php"
 [[ ${PV} == ${PV/_rc/} ]] || PHP_RELEASE="php-pre"
 PHP_P="${PN}-${PHP_PV}"
 
-PHP_PATCHSET_LOC="olemarkus"
+PHP_PATCHSET_LOC="nexylan-overlay"
 
 PHP_SRC_URI="$(php_get_uri "${PHP_RELEASE}" "${PHP_P}.tar.bz2")"
 
