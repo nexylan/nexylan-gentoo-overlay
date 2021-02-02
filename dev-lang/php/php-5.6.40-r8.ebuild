@@ -144,7 +144,7 @@ DEPEND="${COMMON_DEPEND}
 	sys-devel/flex
 	>=sys-devel/m4-1.4.3
 	>=sys-devel/libtool-1.5.18
-    <=dev-libs/icu-67.1"
+	<=dev-libs/icu-67.1"
 
 # Without USE=readline or libedit, the interactive "php -a" CLI will hang.
 REQUIRED_USE="
